@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trò chơi Tài Xỉu</title>
+</head>
+<body>
+  <h1>🎲 Trò chơi Tài Xỉu 🎲</h1>
+
+  <h3>Luật chơi:</h3>
+  <ul>
+    <li>Tài: Tổng điểm từ <b>11 - 17</b></li>
+    <li>Xỉu: Tổng điểm từ <b>4 - 10</b></li>
+    <li>Nếu ra <b>3 mặt giống nhau</b> thì nhà cái thắng</li>
+  </ul>
+
+  <hr>
+
+  <h3>Đặt cược:</h3>
+  <label><input type="radio" name="cuoc" value="Tài"> Chọn Tài</label><br>
+  <label><input type="radio" name="cuoc" value="Xỉu"> Chọn Xỉu</label><br><br>
+
+  <label>Số tiền cược: </label>
+  <input type="number" id="tien" placeholder="Nhập số tiền..."> VNĐ
+
+  <hr>
+
+  <h3>Kết quả:</h3>
+  <p id="dice">🎲 🎲 🎲</p>
+  <p id="tong">Tổng điểm: -</p>
+  <p id="ketqua"><b>Kết quả:</b> Chưa quay</p>
+
+  <br>
+  <button onclick="quay()">Quay xúc xắc</button>
+  <button onclick="choilai()">Chơi lại</button>
+
+  <hr>
+  <footer><i>Made with ❤️ - HTML + JavaScript thuần</i></footer>
+
+  <script>
+    function randomDice() {
+      return Math.floor(Math.random() * 6) + 1;
+    }
+
+    function diceSymbol(num) {
+      const dice = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+      return dice[num - 1];
+    }
+
+    function quay() {
+      const bet = document.querySelector('input[name="cuoc"]:checked');
+      const money = document.getElementById("tien").value;
+      if (!bet || !money) {
+        alert("Vui lòng chọn Tài/Xỉu và nhập số tiền!");
+        return;
+      }
+
+      const d1 = randomDice();
+      const d2 = randomDice();
+      const d3 = randomDice();
+      const tong = d1 + d2 + d3;
+
+      document.getElementById("dice").innerHTML =
+        diceSymbol(d1) + " " + diceSymbol(d2) + " " + diceSymbol(d3);
+      document.getElementById("tong").innerText = "Tổng điểm: " + tong;
+
+      let ketqua = "";
+      if (d1 === d2 && d2 === d3) {
+        ketqua = "Nhà cái thắng (Tam hoa)";
+      } else if (tong >= 11 && tong <= 17) {
+        ketqua = "Tài";
+      } else {
+        ketqua = "Xỉu";
+      }
+
+      const betValue = bet.value;
+      let thongbao = "Bạn chọn: " + betValue + "\nKết quả: " + ketqua;
+
+      if (ketqua === "Nhà cái thắng (Tam hoa)") {
+        thongbao += "\n❌ Bạn thua!";
+      } else if (betValue === ketqua) {
+        thongbao += "\n✅ Bạn thắng " + money + " VNĐ!";
+      } else {
+        thongbao += "\n❌ Bạn thua " + money + " VNĐ!";
+      }
+
+      document.getElementById("ketqua").innerText = thongbao;
+    }
+
+    function choilai() {
+      document.getElementById("dice").innerHTML = "🎲 🎲 🎲";
+      document.getElementById("tong").innerText = "Tổng điểm: -";
+      document.getElementById("ketqua").innerText = "Kết quả: Chưa quay";
+      document.getElementById("tien").value = "";
+      const radios = document.querySelectorAll('input[name="cuoc"]');
+      radios.forEach(r => r.checked = false);
+    }
+  </script>
+</body>
+</html>
