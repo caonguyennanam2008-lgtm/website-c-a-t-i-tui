@@ -1,109 +1,158 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Huychimbu</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Bio Template</title>
   <style>
     body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(to right, #e3f2fd, #fff);
-      color: #333;
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px;
+      justify-content: center;
+      padding: 20px;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      width: 350px;
-      text-align: center;
-      padding: 30px;
-      transition: transform 0.3s;
+    .container {
+      background-image: linear-gradient(white, white), linear-gradient(90deg, #ddd 1px, transparent 1px), linear-gradient(#ddd 1px, transparent 1px);
+      background-size: 100% 100%, 25px 25px, 25px 25px;
+      background-position: 0 0, 0 0, 0 0;
+      width: 700px;
+      padding: 20px;
+      border-radius: 10px;
     }
 
-    .card:hover {
-      transform: translateY(-10px);
-    }
-
-    .avatar {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #64b5f6;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-size: 24px;
-      color: #1976d2;
-      margin-bottom: 10px;
-    }
-
-    p.intro {
-      font-size: 15px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .info {
-      text-align: left;
-      margin-bottom: 20px;
-    }
-
-    .info p {
-      margin: 8px 0;
-      font-size: 15px;
-    }
-
-    .hobby-list {
+    .row {
       display: flex;
-      justify-content: space-around;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
-    .hobby {
-      background: #e3f2fd;
-      border-radius: 10px;
-      padding: 10px 15px;
-      margin: 5px;
-      font-size: 14px;
-      color: #1565c0;
+    .photo {
+      width: 200px;
+      height: 250px;
+      border: 4px solid white;
+      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+      background-color: #f0f0f0;
       display: flex;
       align-items: center;
-      gap: 5px;
+      justify-content: center;
+      font-size: 14px;
+      color: #666;
     }
 
-    .hobby span {
-      font-size: 18px;
+    .box {
+      background-color: #f8f8c8;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+      flex: 1;
+      min-width: 250px;
+    }
+
+    h2 {
+      background-color: #dce289;
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 6px;
+      font-size: 16px;
+      margin: 0 0 10px 0;
+    }
+
+    textarea,
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: none;
+      resize: none;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    textarea:focus,
+    input:focus {
+      background-color: #ffffe0;
+    }
+
+    .small-box {
+      border-radius: 10px;
+      box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      flex: 1;
+      min-width: 200px;
+      height: 100px;
+    }
+
+    .pink {
+      background-color: #f5c9f7;
+    }
+
+    .purple {
+      background-color: #d2c7f7;
+    }
+
+    .mint {
+      background-color: #cbf5e9;
+    }
+
+    .peach {
+      background-color: #f4d7bb;
+      height: 150px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 5px;
     }
   </style>
 </head>
+
 <body>
-  <div class="card">
-    <img src="QuocHuydpchai.jpg" alt="Ảnh cá nhân" class="avatar">
-    <h1>Trần Quốc Huy</h1>
-    <p class="intro">tình yêu mù quáng làm choáng trái tim anh</p>
+  <div class="container">
 
-    <div class="info">
-      <p><strong>🎂 Tuổi:</strong> 18</p>
-      <p><strong>📏 Chiều cao:</strong> 1m30</p>
-      <p><strong>⚖️ Cân nặng:</strong> 2 tấn</p>
-      <p><strong>📍 Quê quán:</strong> Nem Chua </p>
+    <div class="row">
+      <img src="QuocHuy.jpg" alt="Ảnh cá nhân" class="photo">
+
+      <div class="box">
+        <h2>My Bio:</h2>
+        <label>Name:</label>
+        <input type="text" placeholder="Trần Quốc Huy" />
+        <label>Date of Birth:</label>
+        <input type="text" placeholder="30/11/2008" />
+        <label>Zodiac Sign:</label>
+        <input type="text" placeholder="Nhân mã" />
+        <label>Weight:</label>
+        <input type="text" placeholder="72kg" />
+        <label>Height:</label>
+        <input type="text" placeholder="172cm" />
+      </div>
     </div>
 
-    <h3>💙 Sở thích:</h3>
-    <div class="hobby-list">
-      <div class="hobby"><span>🎵</span> nem chua </div>
-      <div class="hobby"><span>📸</span> Chụp ảnh</div>
-      <div class="hobby"><span>🎮</span> Chơi game</div>
-      <div class="hobby"><span>✈️</span> Du lịch</div>
-      <div class="hobby"><span>📚</span> Đọc sách</div>
+    <div class="box mint" style="margin-top:20px;">
+      <h2>About Me:</h2>
+      <textarea rows="4" placeholder="Write something about yourself..."></textarea>
     </div>
+
+    <div class="row" style="margin-top:20px;">
+      <div class="small-box pink">
+        <h2>Likes:</h2>
+        <textarea rows="3" placeholder="Things I like..."></textarea>
+      </div>
+      <div class="small-box peach">
+        <h2>My Goal this Year:</h2>
+        <textarea rows="5" placeholder="My goals for this year..."></textarea>
+      </div>
+    </div>
+
+    <div class="small-box purple" style="margin-top:20px; width:100%;">
+      <h2>Dislikes:</h2>
+      <textarea rows="3" placeholder="Things I dislike..."></textarea>
+    </div>
+
   </div>
 </body>
+
 </html>
